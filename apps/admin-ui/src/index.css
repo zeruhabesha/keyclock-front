@@ -185,6 +185,31 @@ h6 {
   color: hsl(var(--foreground));
 }
 
+/* Refined shell scaffolding */
+.pf-v5-c-masthead,
+.pf-v5-c-page__header {
+  background: hsl(var(--card) / 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid hsl(var(--border));
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.06);
+}
+
+.pf-v5-c-page__header .pf-v5-c-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pf-v5-c-page__header .pf-v5-c-title::after {
+  content: '';
+  display: inline-block;
+  width: 32px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--kc-gradient-primary);
+  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.2);
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
@@ -205,6 +230,34 @@ h6 {
 
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--primary));
+}
+
+/* Navigation, breadcrumbs, tabs */
+.pf-v5-c-nav__link {
+  border-radius: var(--kc-radius-md);
+  padding-inline: 0.85rem;
+  transition: background var(--kc-transition-fast), color var(--kc-transition-fast), transform var(--kc-transition-fast);
+}
+
+.pf-v5-c-nav__link:hover,
+.pf-v5-c-nav__link.pf-m-current {
+  background: hsl(var(--secondary));
+  color: hsl(var(--foreground));
+  transform: translateX(2px);
+  font-weight: 600;
+}
+
+.pf-v5-c-page__main-breadcrumb,
+.pf-v5-c-breadcrumb__link,
+.pf-v5-c-breadcrumb__item,
+.pf-v5-c-breadcrumb__item > span {
+  color: hsl(var(--muted-foreground));
+}
+
+.pf-v5-c-tabs__link { padding-inline: 1.15rem; border-radius: var(--kc-radius-md) var(--kc-radius-md) 0 0; }
+.pf-v5-c-tabs__item.pf-m-current .pf-v5-c-tabs__link {
+  background: linear-gradient(180deg, hsl(var(--secondary)), hsl(var(--card)) 70%);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
 /* ============================================
@@ -392,6 +445,17 @@ button:active:not(:disabled),
   background-color: hsl(var(--card));
   color: hsl(var(--card-foreground));
   border: 1px solid hsl(var(--border));
+}
+
+.pf-v5-c-card__title { font-weight: 700; }
+.pf-v5-c-card__header { gap: 0.5rem; }
+.pf-v5-c-card__header .pf-v5-c-title::after {
+  content: '';
+  display: inline-block;
+  width: 26px;
+  height: 4px;
+  border-radius: 999px;
+  background: hsl(var(--primary) / 0.2);
 }
 
 .pf-v5-c-card:hover {

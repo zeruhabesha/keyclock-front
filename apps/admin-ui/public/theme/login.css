@@ -1,3 +1,9 @@
+/* ============================================
+   LOGIN EXPERIENCE POLISH
+   Glassmorphic, atmospheric canvas with richer
+   form, header, footer, and helper states
+   ============================================ */
+
 .pf-v5-c-login__container {
   grid-template-columns: minmax(0, 36rem);
   grid-template-areas: "header"
