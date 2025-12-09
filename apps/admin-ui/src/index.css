@@ -167,7 +167,7 @@
 /* Apply modern font to body */
 body {
   font-family: var(--kc-font-sans);
-  background-color: hsl(var(--background));
+  background: radial-gradient(circle at 15% 20%, hsl(var(--primary) / 0.08), transparent 32%), radial-gradient(circle at 85% 10%, hsla(262, 83%, 58%, 0.08), transparent 35%), linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--background)) 45%, hsl(var(--card)) 100%);
   color: hsl(var(--foreground));
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

@@ -170,6 +170,8 @@
 /* Apply modern font to body */
 body {
     font-family: var(--kc-font-sans);
+    background: radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.08), transparent 30%), radial-gradient(circle at 90% 10%, rgba(124, 58, 237, 0.1), transparent 35%), linear-gradient(180deg, #f8fafc 0%, #eef2ff 20%, #f8fafc 55%, #f4f4f5 100%);
+    min-height: 100vh;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -183,6 +185,74 @@ h5,
 h6 {
     font-family: var(--kc-font-display);
     font-weight: 600;
+}
+
+/* Page chrome shared across dashboard and forms */
+.kc-app-surface,
+.pf-v5-c-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--kc-space-xl) var(--kc-space-lg) var(--kc-space-3xl);
+}
+
+.kc-panel,
+.pf-v5-c-card {
+    border-radius: var(--kc-radius-xl);
+    border: 1px solid var(--kc-gray-200);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: var(--kc-shadow-lg);
+    backdrop-filter: blur(6px);
+    transition: transform var(--kc-transition-fast), box-shadow var(--kc-transition-fast);
+}
+
+.kc-panel:hover,
+.pf-v5-c-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--kc-shadow-xl);
+}
+
+.pf-v5-c-page__main-section {
+    padding: var(--kc-space-lg);
+}
+
+/* Table polish */
+.pf-v5-c-table {
+    --pf-v5-c-table--BorderColor: var(--kc-gray-200);
+    --pf-v5-c-table__thead--cell--FontWeight: 600;
+    --pf-v5-c-table--cell--PaddingTop: 1rem;
+    --pf-v5-c-table--cell--PaddingBottom: 1rem;
+    --pf-v5-c-table--cell--PaddingLeft: 1rem;
+    --pf-v5-c-table--cell--PaddingRight: 1rem;
+    border-radius: var(--kc-radius-lg);
+    overflow: hidden;
+    background: white;
+    box-shadow: var(--kc-shadow-md);
+}
+
+.pf-v5-c-table thead {
+    background: linear-gradient(135deg, var(--kc-primary-100), #fff);
+}
+
+.pf-v5-c-table tbody tr {
+    transition: background var(--kc-transition-fast), transform var(--kc-transition-fast);
+}
+
+.pf-v5-c-table tbody tr:hover {
+    background: var(--kc-primary-50);
+    transform: translateY(-1px);
+}
+
+/* Form surface */
+.pf-v5-c-form__group-control > * {
+    border-radius: var(--kc-radius-md);
+    border-color: var(--kc-gray-200);
+    box-shadow: none;
+    transition: border-color var(--kc-transition-fast), box-shadow var(--kc-transition-fast);
+}
+
+.pf-v5-c-form__group-control > *:focus {
+    border-color: var(--kc-primary-500);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
 }
 
 /* Custom Scrollbar */
