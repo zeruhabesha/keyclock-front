@@ -1,0 +1,52 @@
+/* ============================================
+   SESSIONS SECTION - MODERN STYLING
+   Enhanced session management interface
+   ============================================ */
+
+.kc-filter-session-type-select {
+  margin-right: 10px;
+  width: 300px;
+  transition: all var(--kc-transition-base);
+}
+
+.kc-filter-session-type-select:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--kc-shadow-sm);
+}
+
+.pf-v5-c-form__group.kc-revocation-modal-form-group {
+  display: inline-block !important;
+  animation: fadeInUp 0.3s ease-out;
+}
+
+/* Session Cards Enhancement */
+.pf-v5-c-data-list__item {
+  transition: all var(--kc-transition-base);
+  border-radius: var(--kc-radius-md);
+  margin-bottom: var(--kc-space-xs);
+}
+
+.pf-v5-c-data-list__item:hover {
+  background: var(--kc-primary-50);
+  transform: translateX(4px);
+  box-shadow: var(--kc-shadow-sm);
+}
+
+/* Session Status Badges */
+.pf-v5-c-label.pf-m-green {
+  background: var(--kc-success-light);
+  color: var(--kc-success);
+  border: 1px solid var(--kc-success);
+}
+
+.pf-v5-c-label.pf-m-red {
+  background: var(--kc-error-light);
+  color: var(--kc-error);
+  border: 1px solid var(--kc-error);
+}
+
+/* Dark Mode */
+[data-theme="dark"] .pf-v5-c-data-list__item:hover,
+.pf-v5-theme-dark .pf-v5-c-data-list__item:hover {
+  background: rgba(59, 130, 246, 0.1);
+}

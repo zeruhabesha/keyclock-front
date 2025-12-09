@@ -1,0 +1,141 @@
+/* ============================================
+   AUTHENTICATION FLOW DIAGRAM - MODERN STYLING
+   Enhanced flow visualization with gradients
+   ============================================ */
+
+.keycloak__authentication__input_node,
+.keycloak__authentication__output_node {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--kc-gradient-primary);
+  border: 0;
+  box-shadow: var(--kc-shadow-md);
+  transition: all var(--kc-transition-base);
+  color: white;
+  font-weight: 600;
+}
+
+.keycloak__authentication__input_node:hover,
+.keycloak__authentication__output_node:hover {
+  transform: scale(1.1);
+  box-shadow: var(--kc-shadow-lg);
+}
+
+.keycloak__authentication__conditional_node {
+  border: 2px solid var(--kc-primary-500);
+  background: white;
+  width: 80px;
+  height: 80px;
+  transform: rotate(45deg);
+  box-shadow: var(--kc-shadow-md);
+  transition: all var(--kc-transition-base);
+}
+
+.keycloak__authentication__conditional_node:hover {
+  transform: rotate(45deg) scale(1.1);
+  box-shadow: var(--kc-shadow-lg);
+  border-color: var(--kc-primary-700);
+}
+
+.keycloak__authentication__conditional_node div {
+  transform: rotate(-45deg);
+  font-weight: 600;
+  color: var(--kc-primary-700);
+}
+
+.keycloak__authentication__subflow_node {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--kc-gradient-accent);
+  box-shadow: var(--kc-shadow-md);
+  transition: all var(--kc-transition-base);
+  color: white;
+  font-weight: 600;
+}
+
+.keycloak__authentication__subflow_node:hover {
+  transform: scale(1.1);
+  box-shadow: var(--kc-shadow-lg);
+}
+
+.keycloak__authentication__input_node.selected,
+.keycloak__authentication__output_node.selected,
+.keycloak__authentication__subflow_node.selected,
+.keycloak__authentication__conditional_node.selected {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3), var(--kc-shadow-lg);
+  transform: scale(1.05);
+}
+
+.keycloak__authentication__conditional_node.selected {
+  transform: rotate(45deg) scale(1.05);
+}
+
+/* Edge Button */
+.edgebutton {
+  background: white;
+  border: 2px solid var(--kc-primary-500);
+  border-radius: 50%;
+  cursor: pointer;
+  height: 33px;
+  width: 33px;
+  box-shadow: var(--kc-shadow-sm);
+  transition: all var(--kc-transition-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edgebutton:hover {
+  background: var(--kc-primary-500);
+  color: white;
+  transform: scale(1.2);
+  box-shadow: var(--kc-shadow-md);
+}
+
+/* Flow Edges/Lines */
+.react-flow__edge-path {
+  stroke: var(--kc-primary-400);
+  stroke-width: 2;
+  transition: all var(--kc-transition-base);
+}
+
+.react-flow__edge:hover .react-flow__edge-path {
+  stroke: var(--kc-primary-600);
+  stroke-width: 3;
+}
+
+.react-flow__edge.selected .react-flow__edge-path {
+  stroke: var(--kc-primary-700);
+  stroke-width: 3;
+}
+
+/* Dark Mode */
+[data-theme="dark"] .keycloak__authentication__conditional_node,
+.pf-v5-theme-dark .keycloak__authentication__conditional_node {
+  background: var(--kc-gray-800);
+  border-color: var(--kc-primary-400);
+}
+
+[data-theme="dark"] .keycloak__authentication__conditional_node div,
+.pf-v5-theme-dark .keycloak__authentication__conditional_node div {
+  color: var(--kc-primary-300);
+}
+
+[data-theme="dark"] .edgebutton,
+.pf-v5-theme-dark .edgebutton {
+  background: var(--kc-gray-800);
+  border-color: var(--kc-primary-400);
+}
+
+[data-theme="dark"] .edgebutton:hover,
+.pf-v5-theme-dark .edgebutton:hover {
+  background: var(--kc-primary-600);
+}

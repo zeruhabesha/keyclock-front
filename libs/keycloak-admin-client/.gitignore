@@ -1,0 +1,24 @@
+lib/
+
+/lib/
+
+# frontend-maven-plugin
+node
+
+# Wireit
+.wireit
+
+# Vite
+dist
+
+# ESLint
+.eslintcache
+
+# NPM
+/node_modules
+node_modules
+# Playwright
+test-results
+playwright-report
+playwright/.cache
+

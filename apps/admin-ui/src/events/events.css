@@ -1,0 +1,100 @@
+/* ============================================
+   EVENTS SECTION - MODERN STYLING
+   Enhanced events and logging interface
+   ============================================ */
+
+.keycloak_eventsection_details {
+  --pf-v5-c-description-list--m-horizontal__term--width: 30ch;
+  animation: fadeInUp 0.4s ease-out;
+}
+
+.keycloak__events_search__form {
+  --pf-v5-c-form--m-horizontal__group-control--md--GridColumnWidth: 24rem;
+  margin: 0 var(--pf-v5-global--spacer--lg) var(--pf-v5-global--spacer--lg) var(--pf-v5-global--spacer--lg);
+  --pf-v5-c-form__group--m-action--MarginTop: 0rem;
+  --pf-v5-c-form--m-horizontal__group-label--md--GridColumnWidth: 5rem;
+  padding: var(--kc-space-lg);
+  background: var(--kc-gradient-subtle);
+  border-radius: var(--kc-radius-lg);
+  border: 1px solid rgba(59, 130, 246, 0.1);
+  box-shadow: var(--kc-shadow-sm);
+  transition: all var(--kc-transition-base);
+}
+
+.keycloak__events_search__form:hover {
+  box-shadow: var(--kc-shadow-md);
+  border-color: rgba(59, 130, 246, 0.2);
+}
+
+.keycloak__events_search__form_label {
+  --pf-v5-c-form--m-horizontal__group-label--md--GridColumnWidth: 5rem;
+  line-height: 0px;
+  font-weight: 600;
+  color: var(--kc-gray-700);
+}
+
+.keycloak__events_search__type_select .pf-v5-c-menu__list {
+  max-height: 200px;
+  overflow: auto;
+  border-radius: var(--kc-radius-md);
+  box-shadow: var(--kc-shadow-lg);
+}
+
+/* Event Type Badges */
+.pf-v5-c-label {
+  transition: all var(--kc-transition-fast);
+  border-radius: var(--kc-radius-md);
+}
+
+.pf-v5-c-label:hover {
+  transform: scale(1.05);
+  box-shadow: var(--kc-shadow-sm);
+}
+
+/* Events Table Enhancement */
+.pf-v5-c-table tbody tr {
+  transition: all var(--kc-transition-base);
+}
+
+.pf-v5-c-table tbody tr:hover {
+  background: var(--kc-primary-50);
+  transform: scale(1.01);
+  box-shadow: var(--kc-shadow-sm);
+}
+
+/* Description List Enhancement */
+.pf-v5-c-description-list__term {
+  font-weight: 600;
+  color: var(--kc-gray-700);
+}
+
+.pf-v5-c-description-list__description {
+  color: var(--kc-gray-600);
+}
+
+/* Dark Mode */
+[data-theme="dark"] .keycloak__events_search__form,
+.pf-v5-theme-dark .keycloak__events_search__form {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .keycloak__events_search__form_label,
+.pf-v5-theme-dark .keycloak__events_search__form_label {
+  color: var(--kc-gray-300);
+}
+
+[data-theme="dark"] .pf-v5-c-table tbody tr:hover,
+.pf-v5-theme-dark .pf-v5-c-table tbody tr:hover {
+  background: rgba(59, 130, 246, 0.1);
+}
+
+[data-theme="dark"] .pf-v5-c-description-list__term,
+.pf-v5-theme-dark .pf-v5-c-description-list__term {
+  color: var(--kc-gray-300);
+}
+
+[data-theme="dark"] .pf-v5-c-description-list__description,
+.pf-v5-theme-dark .pf-v5-c-description-list__description {
+  color: var(--kc-gray-400);
+}

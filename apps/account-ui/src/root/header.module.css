@@ -1,0 +1,91 @@
+/* ============================================
+   ACCOUNT UI HEADER - MODERN STYLING
+   Glassmorphism and smooth animations
+   ============================================ */
+
+.brand {
+  height: 35px;
+  transition: transform var(--kc-transition-base);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.brand:hover {
+  transform: scale(1.05);
+}
+
+/* Header Container */
+.pf-v5-c-masthead {
+  background: var(--kc-glass-bg);
+  backdrop-filter: var(--kc-glass-blur);
+  -webkit-backdrop-filter: var(--kc-glass-blur);
+  border-bottom: 1px solid var(--kc-glass-border);
+  box-shadow: var(--kc-shadow-md);
+  transition: all var(--kc-transition-base);
+}
+
+.pf-v5-c-masthead:hover {
+  box-shadow: var(--kc-shadow-lg);
+}
+
+/* Navigation Links */
+.pf-v5-c-nav__link {
+  transition: all var(--kc-transition-base);
+  border-radius: var(--kc-radius-md);
+  font-weight: 500;
+}
+
+.pf-v5-c-nav__link:hover {
+  background: rgba(59, 130, 246, 0.1);
+  transform: translateY(-2px);
+}
+
+.pf-v5-c-nav__link.pf-m-current {
+  background: var(--kc-gradient-primary);
+  color: white;
+  box-shadow: var(--kc-shadow-sm);
+}
+
+/* User Menu */
+.pf-v5-c-dropdown__toggle {
+  transition: all var(--kc-transition-base);
+  border-radius: var(--kc-radius-md);
+}
+
+.pf-v5-c-dropdown__toggle:hover {
+  background: rgba(59, 130, 246, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Dropdown Menu */
+.pf-v5-c-dropdown__menu {
+  border-radius: var(--kc-radius-lg);
+  box-shadow: var(--kc-shadow-xl);
+  border: 1px solid var(--kc-glass-border);
+  backdrop-filter: var(--kc-glass-blur);
+  -webkit-backdrop-filter: var(--kc-glass-blur);
+  overflow: hidden;
+  animation: fadeInDown 0.3s ease-out;
+}
+
+.pf-v5-c-dropdown__menu-item {
+  transition: all var(--kc-transition-fast);
+  border-radius: var(--kc-radius-sm);
+  margin: 2px 4px;
+}
+
+.pf-v5-c-dropdown__menu-item:hover {
+  background: var(--kc-primary-50);
+  transform: translateX(4px);
+}
+
+/* Dark Mode */
+[data-theme="dark"] .pf-v5-c-masthead,
+.pf-v5-theme-dark .pf-v5-c-masthead {
+  background: rgba(30, 30, 40, 0.8);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .pf-v5-c-dropdown__menu-item:hover,
+.pf-v5-theme-dark .pf-v5-c-dropdown__menu-item:hover {
+  background: rgba(59, 130, 246, 0.2);
+}

@@ -1,0 +1,65 @@
+/* ============================================
+   BANNERS - MODERN ALERT STYLING
+   Enhanced banners with animations
+   ============================================ */
+
+.banner {
+  animation: slideInDown 0.4s ease-out;
+  border-radius: 0;
+  border-left: 4px solid;
+  box-shadow: var(--kc-shadow-md);
+  transition: all var(--kc-transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.banner:hover {
+  box-shadow: var(--kc-shadow-lg);
+  transform: translateY(-2px);
+}
+
+/* Info Banner */
+.banner.pf-m-info {
+  border-left-color: var(--kc-primary-500);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%);
+}
+
+/* Success Banner */
+.banner.pf-m-success {
+  border-left-color: var(--kc-success);
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(34, 197, 94, 0.05) 100%);
+}
+
+/* Warning Banner */
+.banner.pf-m-warning {
+  border-left-color: var(--kc-warning);
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%);
+}
+
+/* Danger Banner */
+.banner.pf-m-danger {
+  border-left-color: var(--kc-error);
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(239, 68, 68, 0.05) 100%);
+}
+
+/* Close Button Enhancement */
+.banner .pf-v5-c-button.pf-m-plain {
+  transition: all var(--kc-transition-fast);
+  border-radius: var(--kc-radius-md);
+}
+
+.banner .pf-v5-c-button.pf-m-plain:hover {
+  background: rgba(0, 0, 0, 0.1);
+  transform: scale(1.1) rotate(90deg);
+}

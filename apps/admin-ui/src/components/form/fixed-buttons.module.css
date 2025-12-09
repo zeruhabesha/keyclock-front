@@ -1,0 +1,54 @@
+/* ============================================
+   FIXED BUTTONS - MODERN ACTION BAR
+   Glassmorphism and smooth animations
+   ============================================ */
+
+.fixedButtons {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--kc-glass-bg);
+  backdrop-filter: var(--kc-glass-blur);
+  -webkit-backdrop-filter: var(--kc-glass-blur);
+  border-top: 1px solid var(--kc-glass-border);
+  box-shadow: var(--kc-shadow-xl);
+  padding: var(--kc-space-md) var(--kc-space-lg);
+  z-index: 1000;
+  transition: all var(--kc-transition-base);
+  animation: slideInUp 0.3s ease-out;
+}
+
+.fixedButtons:hover {
+  box-shadow: var(--kc-shadow-2xl);
+}
+
+/* Button Group */
+.fixedButtons .pf-v5-c-button {
+  margin-right: var(--kc-space-sm);
+  transition: all var(--kc-transition-base);
+}
+
+.fixedButtons .pf-v5-c-button:hover {
+  transform: translateY(-2px);
+}
+
+.fixedButtons .pf-v5-c-button:active {
+  transform: translateY(0);
+}
+
+/* Primary Action Button */
+.fixedButtons .pf-v5-c-button.pf-m-primary {
+  box-shadow: var(--kc-shadow-md);
+}
+
+.fixedButtons .pf-v5-c-button.pf-m-primary:hover {
+  box-shadow: var(--kc-shadow-lg);
+}
+
+/* Dark Mode */
+[data-theme="dark"] .fixedButtons,
+.pf-v5-theme-dark .fixedButtons {
+  background: rgba(30, 30, 40, 0.9);
+  border-top-color: rgba(255, 255, 255, 0.1);
+}

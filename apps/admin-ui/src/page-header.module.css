@@ -1,0 +1,80 @@
+.header {
+    background: hsl(var(--background) / 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid hsl(var(--border));
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 var(--kc-space-xl);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all var(--kc-transition-base);
+}
+
+.header:hover {
+    background: hsl(var(--background) / 0.95);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: var(--kc-space-md);
+}
+
+.logo {
+    height: 32px;
+    transition: transform var(--kc-transition-base);
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.toolbar {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: var(--kc-space-md);
+}
+
+.toolbarItem {
+    color: hsl(var(--muted-foreground));
+    transition: color var(--kc-transition-fast);
+    cursor: pointer;
+    padding: var(--kc-space-sm);
+    border-radius: var(--radius);
+}
+
+.toolbarItem:hover {
+    color: hsl(var(--foreground));
+    background-color: hsl(var(--accent));
+}
+
+.userDropdown {
+    display: flex;
+    align-items: center;
+    gap: var(--kc-space-sm);
+    padding: var(--kc-space-xs) var(--kc-space-sm);
+    border-radius: var(--radius);
+    transition: background-color var(--kc-transition-fast);
+    cursor: pointer;
+}
+
+.userDropdown:hover {
+    background-color: hsl(var(--accent));
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+}

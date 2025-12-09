@@ -1,0 +1,113 @@
+/* ============================================
+   KEYCLOAK CARD - MODERN CARD COMPONENT
+   Enhanced card styling with hover effects
+   ============================================ */
+
+.keycloakCard {
+  border-radius: var(--kc-radius-lg);
+  box-shadow: var(--kc-shadow-md);
+  transition: all var(--kc-transition-base);
+  border: 1px solid rgba(59, 130, 246, 0.1);
+  background: white;
+  overflow: hidden;
+  position: relative;
+}
+
+.keycloakCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--kc-gradient-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--kc-transition-base);
+}
+
+.keycloakCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--kc-shadow-lg);
+  border-color: rgba(59, 130, 246, 0.2);
+}
+
+.keycloakCard:hover::before {
+  transform: scaleX(1);
+}
+
+/* Card Header */
+.keycloakCard .pf-v5-c-card__header {
+  background: var(--kc-gradient-subtle);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding: var(--kc-space-lg);
+}
+
+.keycloakCard .pf-v5-c-card__title {
+  font-family: var(--kc-font-display);
+  font-weight: 600;
+  color: var(--kc-gray-800);
+  transition: color var(--kc-transition-base);
+}
+
+.keycloakCard:hover .pf-v5-c-card__title {
+  color: var(--kc-primary-600);
+}
+
+/* Card Body */
+.keycloakCard .pf-v5-c-card__body {
+  padding: var(--kc-space-lg);
+}
+
+/* Card Footer */
+.keycloakCard .pf-v5-c-card__footer {
+  background: var(--kc-gray-50);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding: var(--kc-space-md) var(--kc-space-lg);
+}
+
+/* Selectable Card */
+.keycloakCard.pf-m-selectable {
+  cursor: pointer;
+}
+
+.keycloakCard.pf-m-selectable:hover {
+  background: var(--kc-primary-50);
+}
+
+.keycloakCard.pf-m-selectable:active {
+  transform: translateY(-2px);
+}
+
+/* Selected State */
+.keycloakCard.pf-m-selected {
+  border-color: var(--kc-primary-500);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.keycloakCard.pf-m-selected::before {
+  transform: scaleX(1);
+}
+
+/* Dark Mode */
+[data-theme="dark"] .keycloakCard,
+.pf-v5-theme-dark .keycloakCard {
+  background: var(--kc-gray-800);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .keycloakCard .pf-v5-c-card__title,
+.pf-v5-theme-dark .keycloakCard .pf-v5-c-card__title {
+  color: var(--kc-gray-100);
+}
+
+[data-theme="dark"] .keycloakCard:hover .pf-v5-c-card__title,
+.pf-v5-theme-dark .keycloakCard:hover .pf-v5-c-card__title {
+  color: var(--kc-primary-300);
+}
+
+[data-theme="dark"] .keycloakCard .pf-v5-c-card__footer,
+.pf-v5-theme-dark .keycloakCard .pf-v5-c-card__footer {
+  background: var(--kc-gray-900);
+  border-top-color: rgba(255, 255, 255, 0.1);
+}

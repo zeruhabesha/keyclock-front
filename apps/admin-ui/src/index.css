@@ -1,0 +1,666 @@
+/* ============================================
+   KEYCLOAK ADMIN UI - GLOBAL STYLES
+   Modern design system with enhanced aesthetics
+   ============================================ */
+
+/* Import Modern Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap');
+
+/* Import Animations */
+@import './animations.css';
+
+/* ============================================
+   CUSTOM CSS VARIABLES & DESIGN TOKENS
+   ============================================ */
+:root {
+  /* Shadcn UI Design System Variables */
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+
+  --primary: 222.2 47.4% 11.2%;
+  --primary-foreground: 210 40% 98%;
+
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 222.2 84% 4.9%;
+
+  --radius: 0.5rem;
+
+  /* Keycloak Mappings to Shadcn */
+  --kc-primary-hue: 222.2;
+  --kc-primary-sat: 47.4%;
+  --kc-primary-light: 11.2%;
+
+  /* Keep existing gradients but updated with Shadcn colors */
+  --kc-gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(222.2, 47.4%, 20%) 100%);
+  --kc-gradient-accent: linear-gradient(135deg, hsl(262.1, 83.3%, 57.8%) 0%, hsl(var(--primary)) 100%);
+  --kc-gradient-subtle: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
+
+  /* Shadows */
+  --kc-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --kc-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --kc-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --kc-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --kc-shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --kc-shadow-glow: 0 0 20px rgba(0, 0, 0, 0.1);
+
+  /* Glassmorphism */
+  --kc-glass-bg: rgba(255, 255, 255, 0.8);
+  --kc-glass-border: hsl(var(--border));
+  --kc-glass-blur: blur(8px);
+
+  /* Typography */
+  --kc-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --kc-font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --kc-font-mono: 'ui-monospace', 'SFMono-Regular', 'SF Mono', 'Consolas', 'Liberation Mono', 'Menlo', monospace;
+
+  /* Spacing Scale */
+  --kc-space-xs: 0.25rem;
+  --kc-space-sm: 0.5rem;
+  --kc-space-md: 1rem;
+  --kc-space-lg: 1.5rem;
+  --kc-space-xl: 2rem;
+  --kc-space-2xl: 3rem;
+  --kc-space-3xl: 4rem;
+
+  /* Border Radius */
+  --kc-radius-sm: calc(var(--radius) - 2px);
+  --kc-radius-md: var(--radius);
+  --kc-radius-lg: var(--radius);
+  --kc-radius-xl: calc(var(--radius) + 4px);
+  --kc-radius-full: 9999px;
+
+  /* Transitions */
+  --kc-transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --kc-transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --kc-transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ============================================
+     PATTERNFLY OVERRIDES (Deep Integration)
+     ============================================ */
+  --pf-v5-global--BackgroundColor--100: hsl(var(--background));
+  --pf-v5-global--BackgroundColor--200: hsl(var(--card));
+  --pf-v5-global--BackgroundColor--light-100: hsl(var(--background));
+  --pf-v5-global--BackgroundColor--light-200: hsl(var(--card));
+
+  --pf-v5-global--Color--100: hsl(var(--foreground));
+  --pf-v5-global--Color--200: hsl(var(--muted-foreground));
+  --pf-v5-global--Color--dark-100: hsl(var(--foreground));
+  --pf-v5-global--Color--dark-200: hsl(var(--muted-foreground));
+
+  --pf-v5-global--BorderColor--100: hsl(var(--border));
+  --pf-v5-global--BorderColor--200: hsl(var(--border));
+  --pf-v5-global--BorderColor--light-100: hsl(var(--border));
+  --pf-v5-global--BorderColor--dark-100: hsl(var(--border));
+
+  --pf-v5-global--primary-color--100: hsl(var(--primary));
+  --pf-v5-global--primary-color--200: hsl(var(--primary));
+  --pf-v5-global--link--Color: hsl(var(--primary));
+  --pf-v5-global--link--Color--hover: hsl(var(--primary) / 0.8);
+}
+
+/* Dark Mode Enhancements */
+[data-theme="dark"],
+.pf-v5-theme-dark {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+
+  --primary: 210 40% 98%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 212.7 26.8% 83.9%;
+
+  --kc-glass-bg: rgba(10, 10, 15, 0.8);
+  --kc-glass-border: hsl(var(--border));
+
+  /* PatternFly Dark Mode Overrides */
+  --pf-v5-global--BackgroundColor--100: hsl(var(--background));
+  --pf-v5-global--BackgroundColor--200: hsl(var(--card));
+  --pf-v5-global--Color--100: hsl(var(--foreground));
+  --pf-v5-global--Color--200: hsl(var(--muted-foreground));
+  --pf-v5-global--BorderColor--100: hsl(var(--border));
+  --pf-v5-global--BorderColor--200: hsl(var(--border));
+}
+
+/* ============================================
+   GLOBAL ELEMENT STYLES
+   ============================================ */
+
+/* Apply modern font to body */
+body {
+  font-family: var(--kc-font-sans);
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings use display font */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--kc-font-display);
+  font-weight: 600;
+  color: hsl(var(--foreground));
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: var(--kc-radius-sm);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground));
+  border-radius: var(--kc-radius-sm);
+  transition: background var(--kc-transition-base);
+  opacity: 0.5;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary));
+}
+
+/* ============================================
+   KEYCLOAK COMPONENT STYLES
+   ============================================ */
+
+img.keycloak__pageheader_brand {
+  height: 35px;
+  transition: transform var(--kc-transition-base);
+}
+
+img.keycloak__pageheader_brand:hover {
+  transform: scale(1.05);
+}
+
+.keycloak__form {
+  max-width: 1024px;
+  padding-bottom: var(--pf-v5-global--spacer--4xl);
+}
+
+/* Enhanced Checkbox Styling */
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  height: 18px;
+  width: 18px;
+  vertical-align: baseline;
+  cursor: pointer;
+  transition: all var(--kc-transition-fast);
+  border-radius: 4px;
+  border: 2px solid hsl(var(--input));
+  background-color: hsl(var(--background));
+  position: relative;
+}
+
+input[type="checkbox"]:hover {
+  border-color: hsl(var(--primary));
+}
+
+input[type="checkbox"]:checked {
+  background-color: hsl(var(--primary));
+  border-color: hsl(var(--primary));
+}
+
+input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  width: 4px;
+  height: 8px;
+  border: solid hsl(var(--primary-foreground));
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+input[type="checkbox"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px hsl(var(--ring) / 0.2);
+}
+
+/* Enhanced Form Actions Bar with Glassmorphism */
+.keycloak__form_actions {
+  position: fixed;
+  bottom: 0px;
+  background: var(--kc-glass-bg);
+  backdrop-filter: var(--kc-glass-blur);
+  -webkit-backdrop-filter: var(--kc-glass-blur);
+  border-top: 1px solid hsl(var(--border));
+  padding-top: var(--pf-v5-global--spacer--md);
+  padding-bottom: var(--pf-v5-global--spacer--sm);
+  padding-left: var(--pf-v5-global--spacer--md);
+  width: 100%;
+  margin-left: calc(-1 * var(--pf-v5-global--spacer--lg));
+  box-shadow: var(--kc-shadow-lg);
+  transition: all var(--kc-transition-base);
+  z-index: 100;
+}
+
+.keycloak__section_intro__help {
+  padding: var(--pf-v5-global--spacer--md) 0 var(--pf-v5-global--spacer--lg);
+  color: hsl(var(--muted-foreground));
+  width: fit-content;
+  transition: color var(--kc-transition-base);
+}
+
+.keycloak__section_intro__help:hover {
+  color: hsl(var(--foreground));
+}
+
+div.w-tc-editor {
+  font-family: var(--kc-font-mono);
+  border-radius: var(--kc-radius-md);
+  border: 1px solid hsl(var(--border));
+  transition: box-shadow var(--kc-transition-base);
+}
+
+div.w-tc-editor:focus-within {
+  box-shadow: 0 0 0 2px hsl(var(--ring));
+  border-color: hsl(var(--ring));
+}
+
+/* ============================================
+   ENHANCED FORM ELEMENTS
+   ============================================ */
+
+/* Input Fields */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="url"],
+input[type="search"],
+textarea,
+select {
+  transition: all var(--kc-transition-base);
+  background-color: hsl(var(--background));
+  border: 1px solid hsl(var(--input));
+  color: hsl(var(--foreground));
+  border-radius: var(--radius);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+textarea:focus,
+select:focus {
+  box-shadow: 0 0 0 2px hsl(var(--ring));
+  border-color: hsl(var(--ring));
+  outline: none;
+}
+
+/* Buttons Enhancement */
+button,
+.pf-v5-c-button {
+  transition: all var(--kc-transition-base);
+  font-family: var(--kc-font-sans);
+  font-weight: 500;
+  border-radius: var(--radius);
+}
+
+button:hover:not(:disabled),
+.pf-v5-c-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+button:active:not(:disabled),
+.pf-v5-c-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Primary Button Gradient */
+.pf-v5-c-button.pf-m-primary {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border: none;
+}
+
+.pf-v5-c-button.pf-m-primary:hover {
+  background: hsl(var(--primary) / 0.9);
+}
+
+/* Secondary Button */
+.pf-v5-c-button.pf-m-secondary {
+  background: hsl(var(--secondary));
+  color: hsl(var(--secondary-foreground));
+  border: none;
+}
+
+.pf-v5-c-button.pf-m-secondary:hover {
+  background: hsl(var(--secondary) / 0.8);
+}
+
+/* ============================================
+   CARD ENHANCEMENTS
+   ============================================ */
+
+.pf-v5-c-card {
+  transition: all var(--kc-transition-base);
+  border-radius: var(--kc-radius-lg);
+  box-shadow: var(--kc-shadow-sm);
+  background-color: hsl(var(--card));
+  color: hsl(var(--card-foreground));
+  border: 1px solid hsl(var(--border));
+}
+
+.pf-v5-c-card:hover {
+  box-shadow: var(--kc-shadow-md);
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.kc-gradient-bg {
+  background: var(--kc-gradient-primary);
+}
+
+.kc-glass {
+  background: var(--kc-glass-bg);
+  backdrop-filter: var(--kc-glass-blur);
+  -webkit-backdrop-filter: var(--kc-glass-blur);
+  border: 1px solid var(--kc-glass-border);
+}
+
+.kc-shadow-glow {
+  box-shadow: var(--kc-shadow-glow);
+}
+
+/* ============================================
+   TABLE ENHANCEMENTS
+   ============================================ */
+
+.pf-v5-c-table {
+  --pf-v5-c-table--BackgroundColor: transparent;
+  --pf-v5-c-table--BorderColor: hsl(var(--border));
+  --pf-v5-c-table__thead--cell--FontSize: 14px;
+  --pf-v5-c-table__thead--cell--FontWeight: 500;
+  --pf-v5-c-table--cell--PaddingTop: 1rem;
+  --pf-v5-c-table--cell--PaddingBottom: 1rem;
+  --pf-v5-c-table--cell--PaddingLeft: 1rem;
+  --pf-v5-c-table--cell--PaddingRight: 1rem;
+  transition: all var(--kc-transition-base);
+  border-collapse: collapse;
+  width: 100%;
+  caption-side: bottom;
+}
+
+/* Table Header */
+.pf-v5-c-table thead {
+  background: transparent;
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+.pf-v5-c-table thead th {
+  text-transform: none;
+  letter-spacing: 0;
+  color: hsl(var(--muted-foreground));
+  font-family: var(--kc-font-sans);
+  height: 3rem;
+  padding: 0 1rem;
+  text-align: left;
+  vertical-align: middle;
+  font-weight: 600;
+}
+
+/* Table Rows */
+.pf-v5-c-table tbody tr {
+  transition: all var(--kc-transition-fast);
+  border-bottom: 1px solid hsl(var(--border));
+  cursor: pointer;
+}
+
+.pf-v5-c-table tbody tr:hover {
+  background-color: hsl(var(--muted) / 0.5);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.pf-v5-c-table tbody tr:last-child {
+  border-bottom: 0;
+}
+
+/* Selected Row State */
+.pf-v5-c-table tbody tr.pf-m-selected,
+.pf-v5-c-table tbody tr[aria-selected="true"] {
+  background-color: hsl(var(--accent) / 0.3);
+}
+
+.pf-v5-c-table tbody tr.pf-m-selected:hover,
+.pf-v5-c-table tbody tr[aria-selected="true"]:hover {
+  background-color: hsl(var(--accent) / 0.5);
+}
+
+/* Table Cells */
+.pf-v5-c-table tbody td {
+  color: hsl(var(--foreground));
+  vertical-align: middle;
+  padding: 1rem;
+  font-size: 14px;
+}
+
+/* Checkbox Cell Alignment */
+.pf-v5-c-table tbody td.pf-v5-c-table__check {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  width: 40px;
+}
+
+.pf-v5-c-table thead th.pf-v5-c-table__check {
+  width: 40px;
+}
+
+/* ============================================
+   SELECT & DROPDOWN ENHANCEMENTS
+   ============================================ */
+
+/* Select/Dropdown Toggle */
+.pf-v5-c-select__toggle,
+.pf-v5-c-dropdown__toggle,
+.pf-v5-c-menu-toggle {
+  background-color: hsl(var(--background));
+  border: 1px solid hsl(var(--input));
+  border-radius: var(--radius);
+  color: hsl(var(--foreground));
+  transition: all var(--kc-transition-base);
+  font-family: var(--kc-font-sans);
+  font-size: 14px;
+  padding: 0.5rem 1rem;
+  min-height: 40px;
+}
+
+.pf-v5-c-select__toggle:hover,
+.pf-v5-c-dropdown__toggle:hover,
+.pf-v5-c-menu-toggle:hover {
+  border-color: hsl(var(--ring));
+  box-shadow: 0 0 0 1px hsl(var(--ring) / 0.2);
+}
+
+.pf-v5-c-select__toggle:focus,
+.pf-v5-c-dropdown__toggle:focus,
+.pf-v5-c-menu-toggle:focus {
+  border-color: hsl(var(--ring));
+  box-shadow: 0 0 0 2px hsl(var(--ring) / 0.2);
+  outline: none;
+}
+
+/* Select Menu */
+.pf-v5-c-select__menu,
+.pf-v5-c-dropdown__menu,
+.pf-v5-c-menu {
+  background-color: hsl(var(--popover));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  box-shadow: var(--kc-shadow-lg);
+  padding: 0.25rem;
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Menu Items */
+.pf-v5-c-select__menu-item,
+.pf-v5-c-dropdown__menu-item,
+.pf-v5-c-menu__list-item {
+  color: hsl(var(--popover-foreground));
+  border-radius: calc(var(--radius) - 2px);
+  padding: 0.5rem 0.75rem;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all var(--kc-transition-fast);
+  margin: 2px 0;
+}
+
+.pf-v5-c-select__menu-item:hover,
+.pf-v5-c-dropdown__menu-item:hover,
+.pf-v5-c-menu__list-item:hover {
+  background-color: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+}
+
+.pf-v5-c-select__menu-item:focus,
+.pf-v5-c-dropdown__menu-item:focus,
+.pf-v5-c-menu__list-item:focus {
+  background-color: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+  outline: none;
+}
+
+.pf-v5-c-select__menu-item.pf-m-selected,
+.pf-v5-c-dropdown__menu-item.pf-m-selected,
+.pf-v5-c-menu__list-item[aria-selected="true"] {
+  background-color: hsl(var(--secondary));
+  color: hsl(var(--secondary-foreground));
+  font-weight: 500;
+}
+
+/* ============================================
+   MODAL ENHANCEMENTS
+   ============================================ */
+
+.pf-v5-c-modal-box {
+  box-shadow: var(--kc-shadow-2xl);
+  border-radius: var(--kc-radius-xl);
+  border: 1px solid hsl(var(--border));
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  overflow: hidden;
+  animation: modalSlideIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.pf-v5-c-backdrop {
+  backdrop-filter: blur(4px);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* ============================================
+   EMPTY STATE ENHANCEMENTS
+   ============================================ */
+
+.pf-v5-c-empty-state {
+  padding: var(--kc-space-3xl) var(--kc-space-xl);
+  text-align: center;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.pf-v5-c-empty-state__icon {
+  color: hsl(var(--muted-foreground));
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+  margin-bottom: var(--kc-space-lg);
+  transition: transform var(--kc-transition-base);
+}
+
+.pf-v5-c-empty-state:hover .pf-v5-c-empty-state__icon {
+  transform: scale(1.1) rotate(5deg);
+  color: hsl(var(--primary));
+}
+
+/* ============================================
+   PAGINATION ENHANCEMENTS
+   ============================================ */
+
+.pf-v5-c-pagination__nav-page-select input {
+  border-radius: var(--radius);
+  border: 1px solid hsl(var(--border));
+  text-align: center;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+.pf-v5-c-pagination__nav-page-select input:focus {
+  border-color: hsl(var(--ring));
+  box-shadow: 0 0 0 2px hsl(var(--ring));
+}

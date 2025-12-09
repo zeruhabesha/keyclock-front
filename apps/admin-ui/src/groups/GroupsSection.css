@@ -1,0 +1,68 @@
+/* ============================================
+   GROUPS SECTION - MODERN STYLING
+   Enhanced group management interface
+   ============================================ */
+
+.keycloak-admin--groups__member-count {
+  display: flex;
+  align-items: center;
+  padding: var(--kc-space-xs) var(--kc-space-sm);
+  background: var(--kc-primary-50);
+  border-radius: var(--kc-radius-full);
+  transition: all var(--kc-transition-base);
+}
+
+.keycloak-admin--groups__member-count:hover {
+  background: var(--kc-primary-100);
+  transform: scale(1.05);
+}
+
+.keycloak-admin--groups__member-count svg {
+  color: var(--kc-primary-600);
+  font-size: var(--pf-v5-global--FontSize--md);
+  margin-right: var(--pf-v5-global--spacer--sm);
+  transition: transform var(--kc-transition-base);
+}
+
+.keycloak-admin--groups__member-count:hover svg {
+  transform: scale(1.1);
+}
+
+/* Group Tree Enhancements */
+.pf-v5-c-tree-view__node {
+  transition: all var(--kc-transition-base);
+  border-radius: var(--kc-radius-md);
+  margin: 2px 0;
+}
+
+.pf-v5-c-tree-view__node:hover {
+  background: var(--kc-primary-50);
+  transform: translateX(4px);
+}
+
+.pf-v5-c-tree-view__node.pf-m-current {
+  background: var(--kc-gradient-primary);
+  color: white;
+  box-shadow: var(--kc-shadow-sm);
+}
+
+/* Dark Mode */
+[data-theme="dark"] .keycloak-admin--groups__member-count,
+.pf-v5-theme-dark .keycloak-admin--groups__member-count {
+  background: rgba(59, 130, 246, 0.2);
+}
+
+[data-theme="dark"] .keycloak-admin--groups__member-count:hover,
+.pf-v5-theme-dark .keycloak-admin--groups__member-count:hover {
+  background: rgba(59, 130, 246, 0.3);
+}
+
+[data-theme="dark"] .keycloak-admin--groups__member-count svg,
+.pf-v5-theme-dark .keycloak-admin--groups__member-count svg {
+  color: var(--kc-primary-300);
+}
+
+[data-theme="dark"] .pf-v5-c-tree-view__node:hover,
+.pf-v5-theme-dark .pf-v5-c-tree-view__node:hover {
+  background: rgba(59, 130, 246, 0.15);
+}
