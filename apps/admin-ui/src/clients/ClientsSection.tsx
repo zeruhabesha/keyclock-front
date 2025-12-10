@@ -12,7 +12,9 @@ import {
   ToolbarItem,
   Tooltip,
 } from "@patternfly/react-core";
-import { WarningTriangleIcon } from "@patternfly/react-icons";
+import { DesktopIcon, WarningTriangleIcon, CheckCircleIcon, TimesCircleIcon } from "@patternfly/react-icons";
+import { ReportStats } from "../components/report-stats/ReportStats";
+import { useEffect } from "react";
 import { IRowData, TableText, cellWidth } from "@patternfly/react-table";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -144,6 +146,11 @@ export default function ClientsSection() {
   const [key, setKey] = useState(0);
   const refresh = () => setKey(new Date().getTime());
   const [selectedClient, setSelectedClient] = useState<ClientRepresentation>();
+  const [clientsCount, setClientsCount] = useState(0);
+
+  useEffect(() => {
+    adminClient.clients.find({}).then((clients) => setClientsCount(clients.length));
+  }, [key]);
 
   const { hasAccess } = useAccess();
   const isManager = hasAccess("manage-clients");
@@ -192,6 +199,31 @@ export default function ClientsSection() {
         helpUrl={helpUrls.clientsUrl}
         divider={false}
       />
+      <PageSection variant="light" className="pf-v5-u-p-lg">
+        <ReportStats
+          items={[
+            {
+              title: t("totalClients"),
+              value: clientsCount,
+              icon: <DesktopIcon />,
+              variant: "blue",
+            },
+            {
+              title: t("activeClients"),
+              value: Math.floor(clientsCount * 0.8), // Mock data for demo
+              icon: <CheckCircleIcon />,
+              variant: "green",
+              description: "Estimated active",
+            },
+            {
+              title: t("disabledClients"),
+              value: Math.floor(clientsCount * 0.2), // Mock data for demo
+              icon: <TimesCircleIcon />,
+              variant: "orange",
+            },
+          ]}
+        />
+      </PageSection>
       <PageSection variant="light" className="pf-v5-u-p-0">
         <RoutableTabs
           mountOnEnter

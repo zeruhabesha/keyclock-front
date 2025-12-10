@@ -1,5 +1,9 @@
 import { useTranslation } from "react-i18next";
 import { PageSection, Tab, TabTitleText } from "@patternfly/react-core";
+import { UsersIcon, UserCheckIcon, UserTimesIcon } from "@patternfly/react-icons";
+import { ReportStats } from "../components/report-stats/ReportStats";
+import { useEffect, useState } from "react";
+import { useAdminClient } from "../admin-client";
 
 import { ViewHeader } from "../components/view-header/ViewHeader";
 import { useRealm } from "../context/realm-context/RealmContext";
@@ -20,6 +24,12 @@ export default function UsersSection() {
   const { realm: realmName } = useRealm();
   const { hasAccess } = useAccess();
   const isFeatureEnabled = useIsFeatureEnabled();
+  const { adminClient } = useAdminClient();
+  const [usersCount, setUsersCount] = useState(0);
+
+  useEffect(() => {
+    adminClient.users.find({}).then((users) => setUsersCount(users.length));
+  }, [realmName]);
 
   const canViewPermissions =
     isFeatureEnabled(Feature.AdminFineGrainedAuthz) &&
@@ -44,6 +54,30 @@ export default function UsersSection() {
         helpUrl={helpUrls.usersUrl}
         divider={false}
       />
+      <PageSection variant="light" className="pf-v5-u-p-lg">
+        <ReportStats
+          items={[
+            {
+              title: t("totalUsers"),
+              value: usersCount,
+              icon: <UsersIcon />,
+              variant: "blue",
+            },
+            {
+              title: t("activeUsers"),
+              value: Math.floor(usersCount * 0.9),
+              icon: <UserCheckIcon />,
+              variant: "green",
+            },
+            {
+              title: t("disabledUsers"),
+              value: Math.floor(usersCount * 0.1),
+              icon: <UserTimesIcon />,
+              variant: "orange",
+            },
+          ]}
+        />
+      </PageSection>
       <PageSection
         data-testid="users-page"
         variant="light"

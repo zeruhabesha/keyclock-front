@@ -6,6 +6,24 @@ import {
   PageSidebar,
   PageSidebarBody,
 } from "@patternfly/react-core";
+import {
+  BellIcon,
+  CodeBranchIcon,
+  CogIcon,
+  CreditCardIcon,
+  DatabaseIcon,
+  DesktopIcon,
+  ExchangeAltIcon,
+  FilterIcon,
+  GlobeAmericasIcon,
+  HistoryIcon,
+  KeyIcon,
+  ListIcon,
+  LockIcon,
+  ShieldAltIcon,
+  SitemapIcon,
+  UsersIcon,
+} from "@patternfly/react-icons";
 import { FormEvent } from "react";
 import { useTranslation } from "react-i18next";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -23,9 +41,28 @@ type LeftNavProps = {
   title: string;
   path: string;
   id?: string;
+  icon?: React.ComponentType<any>;
 };
 
-const LeftNav = ({ title, path, id }: LeftNavProps) => {
+const iconMapping: Record<string, React.ComponentType<any>> = {
+  "/realms": GlobeAmericasIcon,
+  "/organizations": SitemapIcon,
+  "/clients": DesktopIcon,
+  "/client-scopes": FilterIcon,
+  "/roles": KeyIcon,
+  "/users": UsersIcon,
+  "/groups": UsersIcon,
+  "/sessions": HistoryIcon,
+  "/events": BellIcon,
+  "/realm-settings": CogIcon,
+  "/authentication": LockIcon,
+  "/permissions": ShieldAltIcon,
+  "/identity-providers": ExchangeAltIcon,
+  "/user-federation": DatabaseIcon,
+  "/workflows": CodeBranchIcon,
+};
+
+const LeftNav = ({ title, path, id, icon }: LeftNavProps) => {
   const { t } = useTranslation();
   const { hasAccess } = useAccess();
   const { realm } = useRealm();
@@ -45,9 +82,11 @@ const LeftNav = ({ title, path, id }: LeftNavProps) => {
     return undefined;
   }
 
+  const Icon = icon || iconMapping[path] || ListIcon;
   const name = "nav-item" + path.replace("/", "-");
+
   return (
-    <li>
+    <li className="pf-v5-c-nav__item">
       <NavLink
         id={name}
         data-testid={name}
@@ -56,7 +95,10 @@ const LeftNav = ({ title, path, id }: LeftNavProps) => {
           `pf-v5-c-nav__link${isActive ? " pf-m-current" : ""}`
         }
       >
-        {t(title)}
+        <span className="pf-v5-c-nav__link-icon">
+          <Icon />
+        </span>
+        <span className="pf-v5-c-nav__link-text">{t(title)}</span>
       </NavLink>
     </li>
   );
@@ -113,7 +155,7 @@ export const PageNav = () => {
             style={{ wordWrap: "break-word" }}
           >
             <span data-testid="currentRealm">
-              {label(t, realmRepresentation?.displayName, realm)}
+              {label(t, realmRepresentation?.displayName, realm).replace(/Keycloak/i, "Beta")}
             </span>{" "}
             <Label color="blue">{t("currentRealm")}</Label>
           </h2>

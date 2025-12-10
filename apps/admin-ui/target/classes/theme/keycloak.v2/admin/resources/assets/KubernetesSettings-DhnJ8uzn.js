@@ -1,2 +1,0 @@
-import{jsxs as a,Fragment as l,jsx as s}from"react/jsx-runtime";import{a as n,Q as r}from"./main-o1hptXRo.js";const o=()=>{const{t:e}=n();return a(l,{children:[s(r,{name:"alias",label:e("alias"),labelIcon:e("aliasHelp"),rules:{required:e("required")}}),s(r,{name:"config.issuer",labelIcon:e("kubernetesIssuerUrlHelp"),label:e("kubernetesIssuerUrl")})]})};export{o as K};
-//# sourceMappingURL=KubernetesSettings-DhnJ8uzn.js.map

@@ -5,7 +5,5 @@
       <stop offset="100%" style="stop-color:#0078d7;stop-opacity:1" />
     </linearGradient>
   </defs>
-  <text x="0" y="30" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffffff">Keycloak</text>
-  <rect x="115" y="10" width="50" height="24" rx="4" fill="url(#grad1)" />
-  <text x="122" y="27" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">BETA</text>
+  <text x="0" y="30" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffffff">Beta</text>
 </svg>

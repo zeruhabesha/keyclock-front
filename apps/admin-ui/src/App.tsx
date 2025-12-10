@@ -12,6 +12,7 @@ import {
   ErrorBoundaryProvider,
   KeycloakSpinner,
 } from "@keycloak/keycloak-ui-shared";
+import { LoadingBeta } from "./components/LoadingBeta";
 import { Header } from "./PageHeader";
 import { PageNav } from "./PageNav";
 import { AdminClientContext, initAdminClient } from "./admin-client";
@@ -61,7 +62,7 @@ export const App = () => {
     init().catch(console.error);
   }, []);
 
-  if (!adminClient) return <KeycloakSpinner />;
+  if (!adminClient) return <LoadingBeta />;
   return (
     <AdminClientContext.Provider value={{ keycloak, adminClient }}>
       <AppContexts>

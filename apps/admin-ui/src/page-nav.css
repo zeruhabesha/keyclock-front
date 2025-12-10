@@ -22,27 +22,51 @@
 .pf-v5-c-nav__link {
   color: hsl(var(--muted-foreground));
   border-radius: var(--radius);
-  padding: var(--kc-space-sm) var(--kc-space-md);
+  padding: 0.75rem 1rem;
   transition: all var(--kc-transition-fast);
   font-weight: 500;
-  font-size: 14px;
+  font-size: 0.95rem;
   position: relative;
   display: flex;
   align-items: center;
-  gap: var(--kc-space-sm);
+  gap: 12px;
+}
+
+.pf-v5-c-nav__link-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
+}
+
+.pf-v5-c-nav__link-text {
+  line-height: 1.25;
 }
 
 .pf-v5-c-nav__link:hover {
   background-color: hsl(var(--accent));
   color: hsl(var(--accent-foreground));
   text-decoration: none;
+  transform: translateX(4px);
+}
+
+.pf-v5-c-nav__link:hover .pf-v5-c-nav__link-icon {
+  opacity: 1;
 }
 
 .pf-v5-c-nav__link.pf-m-current,
 .pf-v5-c-nav__link:focus {
-  background-color: hsl(var(--secondary));
-  color: hsl(var(--secondary-foreground));
+  background: var(--gradient-blue);
+  color: hsl(var(--primary-foreground));
   font-weight: 600;
+  box-shadow: 0 4px 12px rgba(55, 125, 255, 0.25);
+}
+
+.pf-v5-c-nav__link.pf-m-current .pf-v5-c-nav__link-icon,
+.pf-v5-c-nav__link:focus .pf-v5-c-nav__link-icon {
+  opacity: 1;
 }
 
 .pf-v5-c-nav__section-title {
