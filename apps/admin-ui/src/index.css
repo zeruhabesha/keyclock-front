@@ -11,11 +11,11 @@
    ============================================ */
 
 :root {
-  /* Light Mode Palette: Arctic blues */
+  /* Light Mode Palette: Arctic blues with lavender highlights */
   --background: 220 33% 98%;
-  --foreground: 0 0% 7%;
+  --foreground: 221 43% 14%;
   --card: 222 30% 99%;
-  --card-foreground: 0 0% 7%;
+  --card-foreground: 221 43% 14%;
 
   /* Primary Buttons & Links */
   --primary: 226 86% 56%;
@@ -23,11 +23,11 @@
   --primary-foreground: 0 0% 100%;
 
   /* Supporting Surfaces */
-  --secondary: 222 32% 95%;
+  --secondary: 223 28% 94%;
   --secondary-foreground: 221 43% 14%;
-  --muted: 223 20% 88%;
-  --muted-foreground: 220 18% 36%;
-  --accent: 199 90% 54%;
+  --muted: 223 24% 90%;
+  --muted-foreground: 220 15% 42%;
+  --accent: 193 86% 54%;
   --accent-foreground: 0 0% 100%;
   --destructive: 0 80% 60%;
   --destructive-foreground: 0 0% 100%;
@@ -37,17 +37,18 @@
   --radius: 0.75rem;
 
   /* Modern Accents */
-  --kc-accent-teal: hsl(193, 85%, 58%);
+  --kc-accent-purple: hsl(265, 70%, 65%);
+  --kc-accent-teal: hsl(190, 70%, 55%);
+  --kc-accent-orange: hsl(24, 85%, 61%);
   --kc-success: hsl(142, 71%, 45%);
 
   /* Gradient System */
-  --gradient-blue: linear-gradient(135deg, hsl(210, 98%, 62%) 0%, hsl(217, 90%, 56%) 45%, hsl(223, 85%, 52%) 100%);
+  --gradient-blue: linear-gradient(135deg, hsl(226, 86%, 60%) 0%, hsl(193, 86%, 58%) 40%, hsl(265, 70%, 65%) 100%);
   --gradient-blue-subtle: linear-gradient(135deg, hsl(223, 45%, 96%) 0%, hsl(221, 36%, 99%) 100%);
-  --kc-button-gradient: linear-gradient(120deg, hsl(211, 94%, 60%) 0%, hsl(218, 90%, 55%) 55%, hsl(225, 86%, 52%) 100%);
   --kc-gradient-primary: var(--gradient-blue);
-  --kc-gradient-surface: radial-gradient(circle at 20% 18%, hsl(205, 90%, 94%), transparent 32%),
-    radial-gradient(circle at 82% 6%, hsl(210, 90%, 92%), transparent 32%),
-    linear-gradient(140deg, hsl(221, 42%, 98%) 0%, hsl(223, 35%, 95%) 58%, hsl(219, 40%, 98%) 100%);
+  --kc-gradient-surface: radial-gradient(circle at 20% 20%, hsl(193, 86%, 92%), transparent 35%),
+    radial-gradient(circle at 80% 0%, hsl(265, 70%, 92%), transparent 32%),
+    linear-gradient(135deg, hsl(221, 40%, 98%) 0%, hsl(223, 33%, 96%) 60%, hsl(219, 40%, 98%) 100%);
 
   /* Glassmorphism */
   --kc-glass-bg: rgba(255, 255, 255, 0.82);
@@ -99,23 +100,21 @@ h6 {
 /* Dark Mode: Charcoal + Blue */
 [data-theme="dark"],
 .pf-v5-theme-dark {
-  --background: 215 24% 8%;
-  --foreground: 210 38% 96%;
-  --card: 216 28% 12%;
-  --card-foreground: 210 38% 96%;
-  --primary: 207 89% 65%;
-  --primary-hover: 209 89% 72%;
+  --background: 221 36% 6%;
+  --foreground: 210 40% 96%;
+  --card: 223 32% 9%;
+  --card-foreground: 210 40% 96%;
+  --primary: 200 95% 65%;
+  --primary-hover: 200 95% 72%;
   --primary-foreground: 0 0% 100%;
-  --secondary: 218 22% 15%;
-  --secondary-foreground: 210 38% 96%;
-  --muted: 215 20% 18%;
-  --muted-foreground: 215 18% 72%;
-  --accent: 199 90% 54%;
+  --secondary: 223 26% 16%;
+  --secondary-foreground: 210 40% 96%;
+  --muted: 223 24% 14%;
+  --muted-foreground: 215 25% 74%;
+  --accent: 265 70% 70%;
   --accent-foreground: 0 0% 100%;
-  --border: 215 18% 24%;
-  --input: 215 20% 22%;
-  --kc-glass-bg: rgba(18, 26, 42, 0.8);
-  --kc-glass-border: rgba(255, 255, 255, 0.08);
+  --border: 223 24% 18%;
+  --input: 223 24% 16%;
 }
 
 h4,
@@ -225,7 +224,7 @@ select:focus,
 }
 
 /* ============================================
-   DATA TABLES - CLEAN BLUE PRESENTATION
+   MODERN TABLES - RESPONSIVE BLUE CARDS
    ============================================ */
 
 .pf-v5-c-table {
@@ -234,35 +233,42 @@ select:focus,
   border: 1px solid hsl(var(--border)) !important;
   border-radius: var(--kc-radius-lg);
   border-collapse: separate !important;
-  border-spacing: 0 !important;
+  border-spacing: 0 0.75rem !important;
+  /* Space between rows */
   width: 100% !important;
-  box-shadow: var(--kc-shadow-sm);
-  overflow: hidden;
-  margin-top: 1rem;
+  margin-top: 1.25rem !important;
+  position: relative;
 }
 
+/* Header Styling - Clear & Structured */
 .pf-v5-c-table thead {
   background: hsl(var(--secondary)) !important;
 }
 
 .pf-v5-c-table thead th {
-  background: hsl(var(--secondary)) !important;
-  border-bottom: 1px solid hsl(var(--border)) !important;
-  border-right: 1px solid hsl(var(--border)) !important;
+  background: hsl(var(--card) / 0.75) !important;
+  backdrop-filter: var(--kc-glass-blur);
+  border-bottom: none !important;
   font-family: var(--kc-font-sans) !important;
-  font-size: 0.9rem !important;
+  font-size: 0.78rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
   font-weight: 700 !important;
-  letter-spacing: 0 !important;
-  text-transform: none !important;
-  color: hsl(var(--foreground)) !important;
-  padding: 0.9rem 1.1rem !important;
-  position: sticky;
-  top: 0;
-  z-index: 1;
+  color: hsl(var(--muted-foreground)) !important;
+  padding: 0 1.75rem 0.85rem 1.75rem !important;
+  position: relative;
 }
 
-.pf-v5-c-table thead th:last-child {
-  border-right: none !important;
+.pf-v5-c-table thead th::after {
+  content: '';
+  position: absolute;
+  left: 1.75rem;
+  right: 1.75rem;
+  bottom: 0.35rem;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--kc-accent-purple)) 60%, hsl(var(--kc-accent-teal)));
+  opacity: 0.28;
 }
 
 .pf-v5-c-table thead th .pf-v5-c-table__sort-indicator {
@@ -274,32 +280,78 @@ select:focus,
 }
 
 .pf-v5-c-table tbody tr {
-  transition: background var(--kc-transition-base), box-shadow var(--kc-transition-base), border-color var(--kc-transition-base);
+  background: linear-gradient(135deg, hsl(var(--card)), hsl(var(--card)) 60%, hsl(var(--secondary)));
+  box-shadow: 0 15px 40px -18px rgba(20, 31, 56, 0.35) !important;
+  border-radius: var(--kc-radius-xl) !important;
+  border: 1px solid hsl(var(--border) / 0.8) !important;
+  transition: transform var(--kc-transition-base), box-shadow var(--kc-transition-base), border-color var(--kc-transition-base);
+  position: relative;
+  overflow: hidden;
 }
 
-.pf-v5-c-table tbody tr:nth-child(even) {
-  background: hsl(var(--secondary)) !important;
+.pf-v5-c-table tbody tr::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--kc-accent-purple) / 0.1));
+  opacity: 0;
+  transition: opacity var(--kc-transition-base);
+  pointer-events: none;
 }
 
+/* Rounded corners for the row-card */
+.pf-v5-c-table tbody tr td:first-child {
+  border-top-left-radius: var(--kc-radius-xl) !important;
+  border-bottom-left-radius: var(--kc-radius-xl) !important;
+  border-left: 1px solid hsl(var(--border) / 0.85) !important;
+}
+
+.pf-v5-c-table tbody tr td:last-child {
+  border-top-right-radius: var(--kc-radius-xl) !important;
+  border-bottom-right-radius: var(--kc-radius-xl) !important;
+  border-right: 1px solid hsl(var(--border) / 0.85) !important;
+}
+
+/* Middle cells need top/bottom border */
+.pf-v5-c-table tbody tr td {
+  border-top: 1px solid hsl(var(--border) / 0.85) !important;
+  border-bottom: 1px solid hsl(var(--border) / 0.85) !important;
+  border-left: none;
+  border-right: none;
+  background-color: hsl(var(--card) / 0.9) !important;
+  /* Ensure cell bg matches row */
+}
+
+/* Hover Effects */
 .pf-v5-c-table tbody tr:hover {
-  background: hsl(var(--primary) / 0.06) !important;
-  box-shadow: inset 0 1px 0 hsl(var(--primary) / 0.18);
+  transform: translateY(-4px) !important;
+  box-shadow: 0 18px 45px -15px rgba(20, 31, 56, 0.45) !important;
+  border-color: hsl(var(--primary) / 0.65) !important;
+  z-index: 10 !important;
+}
+
+.pf-v5-c-table tbody tr:hover::before {
+  opacity: 1;
+}
+
+.pf-v5-c-table tbody tr:hover td {
+  background: linear-gradient(135deg, hsl(var(--card)), hsl(var(--secondary)) 90%) !important;
+  border-color: hsl(var(--primary) / 0.45) !important;
 }
 
 .pf-v5-c-table tbody td {
-  padding: 0.9rem 1.1rem !important;
-  font-size: 0.95rem !important;
+  padding: 1.35rem 1.75rem !important;
+  font-size: 0.97rem !important;
   color: hsl(var(--foreground)) !important;
   vertical-align: middle !important;
-  line-height: 1.4 !important;
-  border-top: none !important;
-  border-bottom: 1px solid hsl(var(--border)) !important;
-  border-right: 1px solid hsl(var(--border) / 0.7) !important;
-  background: transparent !important;
+  line-height: 1.35 !important;
 }
 
-.pf-v5-c-table tbody td:last-child {
-  border-right: none !important;
+.pf-v5-c-table tbody td small {
+  display: block;
+  margin-top: 0.2rem;
+  color: hsl(var(--muted-foreground)) !important;
+  letter-spacing: 0.01em;
 }
 
 .pf-v5-c-table tbody tr:last-child td {
@@ -308,12 +360,18 @@ select:focus,
 
 .pf-v5-c-table tbody tr.pf-m-selected,
 .pf-v5-c-table tbody tr[aria-selected="true"] {
-  background-color: hsl(var(--primary) / 0.12) !important;
+  background-color: hsl(var(--primary) / 0.08) !important;
   border-color: hsl(var(--primary)) !important;
+}
+
+.pf-v5-c-table tbody tr.pf-m-selected::before,
+.pf-v5-c-table tbody tr[aria-selected="true"]::before {
+  opacity: 1;
 }
 
 .pf-v5-c-table tbody tr.pf-m-selected td,
 .pf-v5-c-table tbody tr[aria-selected="true"] td {
+  background: linear-gradient(135deg, hsl(var(--primary) / 0.08), hsl(var(--kc-accent-teal) / 0.06)) !important;
   border-color: hsl(var(--primary)) !important;
 }
 
@@ -327,52 +385,6 @@ select:focus,
 .pf-v5-c-table a:hover {
   text-decoration: underline !important;
   color: hsl(var(--primary-hover)) !important;
-}
-
-/* Responsive layout: convert rows to cards on small screens */
-@media (max-width: 900px) {
-  .pf-v5-c-table {
-    border-spacing: 0 !important;
-  }
-
-  .pf-v5-c-table thead {
-    display: none !important;
-  }
-
-  .pf-v5-c-table tbody tr {
-    display: grid;
-    grid-template-columns: 1fr;
-    margin-bottom: var(--kc-space-sm);
-    border: 1px solid hsl(var(--border));
-    border-radius: var(--kc-radius-md);
-    overflow: hidden;
-    background: hsl(var(--card)) !important;
-  }
-
-  .pf-v5-c-table tbody tr:nth-child(even) {
-    background: hsl(var(--card)) !important;
-  }
-
-  .pf-v5-c-table tbody td {
-    display: flex !important;
-    justify-content: space-between;
-    gap: 0.75rem;
-    padding: 0.85rem 1rem !important;
-    border: none !important;
-    border-bottom: 1px solid hsl(var(--border)) !important;
-  }
-
-  .pf-v5-c-table tbody tr td:last-child {
-    border-bottom: none !important;
-  }
-
-  .pf-v5-c-table tbody tr td::before {
-    content: attr(data-label);
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: hsl(var(--muted-foreground));
-  }
 }
 
 /* Empty State / Loading State Overrides if needed */
