@@ -103,7 +103,7 @@ export const Header = () => {
   const isMasterRealm = realm === "master";
   const isManager = hasAccess("manage-realm");
 
-  const logo = customLogo || environment.logo || "/beta-logo.svg";
+  const logo = customLogo || environment.logo || "/logo.svg";
   const url = useHref(toDashboard({ realm }));
   const logoUrl = environment.logoUrl ? environment.logoUrl : url;
 
