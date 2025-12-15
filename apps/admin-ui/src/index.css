@@ -235,9 +235,8 @@ select:focus,
   border-spacing: 0 0.75rem !important;
   /* Space between rows */
   width: 100% !important;
-  margin-top: 1.5rem !important;
+  margin-top: 1.25rem !important;
   position: relative;
-  padding-inline: 0.25rem;
 }
 
 /* Header Styling - Transparent & Uppercase */
@@ -251,14 +250,13 @@ select:focus,
   backdrop-filter: var(--kc-glass-blur);
   border-bottom: none !important;
   font-family: var(--kc-font-sans) !important;
-  font-size: 0.82rem !important;
+  font-size: 0.78rem !important;
   text-transform: uppercase !important;
   letter-spacing: 0.08em !important;
   font-weight: 700 !important;
   color: hsl(var(--muted-foreground)) !important;
-  padding: 0.35rem 1.75rem 0.95rem 1.75rem !important;
+  padding: 0 1.75rem 0.85rem 1.75rem !important;
   position: relative;
-  border-radius: var(--kc-radius-lg) !important;
 }
 
 .pf-v5-c-table thead th::after {
@@ -269,8 +267,8 @@ select:focus,
   bottom: 0.35rem;
   height: 3px;
   border-radius: 999px;
-  background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)) 50%, hsl(var(--kc-accent-purple)) 100%);
-  opacity: 0.32;
+  background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--kc-accent-purple)) 60%, hsl(var(--kc-accent-teal)));
+  opacity: 0.28;
 }
 
 .pf-v5-c-table thead th .pf-v5-c-table__sort-indicator {
@@ -283,11 +281,10 @@ select:focus,
 }
 
 .pf-v5-c-table tbody tr {
-  background: linear-gradient(145deg, hsl(var(--card) / 0.94), hsl(var(--secondary) / 0.85) 55%, hsl(var(--card) / 0.96));
-  box-shadow: var(--kc-shadow-lg) !important;
+  background: linear-gradient(135deg, hsl(var(--card)), hsl(var(--card)) 60%, hsl(var(--secondary)));
+  box-shadow: 0 15px 40px -18px rgba(20, 31, 56, 0.35) !important;
   border-radius: var(--kc-radius-xl) !important;
-  border: 1px solid hsl(var(--border) / 0.9) !important;
-  backdrop-filter: var(--kc-glass-blur);
+  border: 1px solid hsl(var(--border) / 0.8) !important;
   transition: transform var(--kc-transition-base), box-shadow var(--kc-transition-base), border-color var(--kc-transition-base);
   position: relative;
   overflow: hidden;
@@ -297,8 +294,8 @@ select:focus,
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--accent) / 0.1) 45%, hsl(var(--kc-accent-purple) / 0.12));
-  opacity: 0.2;
+  background: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--kc-accent-purple) / 0.1));
+  opacity: 0;
   transition: opacity var(--kc-transition-base);
   pointer-events: none;
 }
@@ -328,8 +325,8 @@ select:focus,
 
 /* Hover Effects */
 .pf-v5-c-table tbody tr:hover {
-  transform: translateY(-5px) !important;
-  box-shadow: var(--kc-shadow-xl) !important;
+  transform: translateY(-4px) !important;
+  box-shadow: 0 18px 45px -15px rgba(20, 31, 56, 0.45) !important;
   border-color: hsl(var(--primary) / 0.65) !important;
   z-index: 10 !important;
 }
