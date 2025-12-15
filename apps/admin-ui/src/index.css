@@ -97,7 +97,7 @@ h6 {
   font-family: var(--kc-font-display);
 }
 
-/* Dark Mode: Black + Blue */
+/* Dark Mode: Charcoal + Blue */
 [data-theme="dark"],
 .pf-v5-theme-dark {
   --background: 221 36% 6%;
@@ -224,7 +224,7 @@ select:focus,
 }
 
 /* ============================================
-   MODERN TABLES - CARD STYLE REDESIGN (FORCED)
+   MODERN TABLES - RESPONSIVE BLUE CARDS
    ============================================ */
 
 /* Reset Table Container */
@@ -239,7 +239,7 @@ select:focus,
   position: relative;
 }
 
-/* Header Styling - Transparent & Uppercase */
+/* Header Styling - Clear & Structured */
 .pf-v5-c-table thead {
   background-color: transparent !important;
   box-shadow: none !important;
@@ -359,7 +359,6 @@ select:focus,
 /* Remove default PF styling overrides */
 .pf-v5-c-table tr>* {
   border-bottom: none !important;
-  /* Kill default borders */
 }
 
 /* Selected Row State */
