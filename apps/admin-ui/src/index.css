@@ -227,10 +227,11 @@ select:focus,
    MODERN TABLES - RESPONSIVE BLUE CARDS
    ============================================ */
 
-/* Reset Table Container */
 .pf-v5-c-table {
-  --pf-v5-c-table--BackgroundColor: transparent !important;
-  --pf-v5-c-table--BorderColor: transparent !important;
+  --pf-v5-c-table--BorderColor: hsl(var(--border)) !important;
+  background-color: hsl(var(--card)) !important;
+  border: 1px solid hsl(var(--border)) !important;
+  border-radius: var(--kc-radius-lg);
   border-collapse: separate !important;
   border-spacing: 0 0.75rem !important;
   /* Space between rows */
@@ -241,8 +242,7 @@ select:focus,
 
 /* Header Styling - Clear & Structured */
 .pf-v5-c-table thead {
-  background-color: transparent !important;
-  box-shadow: none !important;
+  background: hsl(var(--secondary)) !important;
 }
 
 .pf-v5-c-table thead th {
@@ -275,9 +275,8 @@ select:focus,
   color: hsl(var(--muted-foreground)) !important;
 }
 
-/* Body Row Styling - Card Look */
 .pf-v5-c-table tbody {
-  background-color: transparent !important;
+  background: hsl(var(--card)) !important;
 }
 
 .pf-v5-c-table tbody tr {
@@ -340,7 +339,6 @@ select:focus,
   border-color: hsl(var(--primary) / 0.45) !important;
 }
 
-/* Cell Styling */
 .pf-v5-c-table tbody td {
   padding: 1.35rem 1.75rem !important;
   font-size: 0.97rem !important;
@@ -356,12 +354,10 @@ select:focus,
   letter-spacing: 0.01em;
 }
 
-/* Remove default PF styling overrides */
-.pf-v5-c-table tr>* {
+.pf-v5-c-table tbody tr:last-child td {
   border-bottom: none !important;
 }
 
-/* Selected Row State */
 .pf-v5-c-table tbody tr.pf-m-selected,
 .pf-v5-c-table tbody tr[aria-selected="true"] {
   background-color: hsl(var(--primary) / 0.08) !important;
@@ -379,7 +375,6 @@ select:focus,
   border-color: hsl(var(--primary)) !important;
 }
 
-/* Links inside tables */
 .pf-v5-c-table a {
   color: hsl(var(--primary)) !important;
   font-weight: 600 !important;
@@ -396,7 +391,6 @@ select:focus,
 .pf-v5-c-empty-state {
   background: transparent !important;
 }
-
 /* ============================================
    CARDS
    ============================================ */
@@ -503,6 +497,14 @@ select:focus,
   background: var(--gradient-blue);
   margin-left: 0.75rem;
   box-shadow: 0 4px 12px rgba(55, 125, 255, 0.4);
+}
+
+/* Right-align masthead toolbar items so actions sit on the edge */
+.pf-v5-c-masthead .pf-v5-c-toolbar,
+.pf-v5-c-masthead .pf-v5-c-toolbar__content {
+  width: 100%;
+  justify-content: flex-end;
+  gap: 0.5rem;
 }
 
 /* ============================================
