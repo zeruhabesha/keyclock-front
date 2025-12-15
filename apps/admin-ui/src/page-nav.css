@@ -1,8 +1,13 @@
+/* Sidebar Glassmorphism */
 .pf-v5-c-page__sidebar {
-  background-color: hsl(var(--background));
-  border-right: 1px solid hsl(var(--border));
+  background-color: var(--kc-glass-bg);
+  backdrop-filter: var(--kc-glass-blur);
+  -webkit-backdrop-filter: var(--kc-glass-blur);
+  border-right: 1px solid var(--kc-glass-border);
   width: 280px;
   transition: width var(--kc-transition-base);
+  box-shadow: var(--kc-shadow-lg);
+  z-index: 200;
 }
 
 .pf-v5-c-nav {
@@ -19,17 +24,20 @@
   margin-bottom: 2px;
 }
 
+/* Modern Nav Links */
 .pf-v5-c-nav__link {
   color: hsl(var(--muted-foreground));
-  border-radius: var(--radius);
+  border-radius: var(--kc-radius-md);
   padding: 0.75rem 1rem;
-  transition: all var(--kc-transition-fast);
+  transition: all var(--kc-transition-base);
   font-weight: 500;
   font-size: 0.95rem;
   position: relative;
   display: flex;
   align-items: center;
   gap: 12px;
+  overflow: hidden;
+  /* For the sweep effect */
 }
 
 .pf-v5-c-nav__link-icon {
@@ -39,43 +47,74 @@
   width: 20px;
   height: 20px;
   opacity: 0.8;
+  transition: opacity var(--kc-transition-base);
 }
 
 .pf-v5-c-nav__link-text {
   line-height: 1.25;
 }
 
+/* Hover Slide Effect */
 .pf-v5-c-nav__link:hover {
-  background-color: hsl(var(--accent));
-  color: hsl(var(--accent-foreground));
+  background-color: hsl(var(--primary) / 0.08);
+  color: hsl(var(--primary));
   text-decoration: none;
   transform: translateX(4px);
+  padding-left: calc(1rem + 4px);
 }
 
 .pf-v5-c-nav__link:hover .pf-v5-c-nav__link-icon {
   opacity: 1;
+  color: hsl(var(--primary));
 }
 
+/* Gradient Indicator on Hover */
+.pf-v5-c-nav__link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--gradient-blue);
+  transform: scaleY(0);
+  transition: transform var(--kc-transition-base);
+  border-radius: 0 var(--kc-radius-sm) var(--kc-radius-sm) 0;
+}
+
+.pf-v5-c-nav__link:hover::before {
+  transform: scaleY(0.6);
+}
+
+/* Active State */
 .pf-v5-c-nav__link.pf-m-current,
 .pf-v5-c-nav__link:focus {
   background: var(--gradient-blue);
   color: hsl(var(--primary-foreground));
   font-weight: 600;
-  box-shadow: 0 4px 12px rgba(55, 125, 255, 0.25);
+  box-shadow: 0 4px 12px rgba(55, 125, 255, 0.3);
+  transform: translateX(4px);
+}
+
+.pf-v5-c-nav__link.pf-m-current::before {
+  transform: scaleY(1);
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .pf-v5-c-nav__link.pf-m-current .pf-v5-c-nav__link-icon,
 .pf-v5-c-nav__link:focus .pf-v5-c-nav__link-icon {
   opacity: 1;
+  color: currentColor;
 }
 
 .pf-v5-c-nav__section-title {
   color: hsl(var(--muted-foreground));
-  font-size: 12px;
+  font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-weight: 600;
+  letter-spacing: 0.08em;
+  font-weight: 700;
   padding: var(--kc-space-lg) var(--kc-space-md) var(--kc-space-xs);
+  opacity: 0.8;
 }
 
 /* Scrollbar for sidebar */
