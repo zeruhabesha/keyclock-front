@@ -147,7 +147,7 @@ button,
 .pf-c-button.pf-m-primary,
 button[type="submit"],
 .btn-primary {
-  background: var(--gradient-blue);
+  background: var(--kc-button-gradient);
   color: hsl(var(--primary-foreground));
   box-shadow: 0 2px 4px rgba(55, 125, 255, 0.2);
 }
@@ -155,7 +155,7 @@ button[type="submit"],
 .pf-v5-c-button.pf-m-primary:hover,
 .pf-c-button.pf-m-primary:hover,
 button[type="submit"]:hover {
-  background: linear-gradient(135deg, hsl(var(--primary-hover)) 0%, hsl(217, 91%, 35%) 100%);
+  background: linear-gradient(130deg, hsl(213, 90%, 64%) 0%, hsl(221, 92%, 58%) 48%, hsl(228, 86%, 54%) 100%);
   transform: translateY(-1px);
   box-shadow: 0 4px 8px rgba(55, 125, 255, 0.3);
 }
@@ -456,6 +456,31 @@ select:focus,
   color: hsl(var(--primary-foreground));
   font-weight: 600;
   box-shadow: 0 2px 8px rgba(55, 125, 255, 0.3);
+}
+
+[data-theme="dark"] .pf-v5-c-nav__link,
+.pf-v5-theme-dark .pf-v5-c-nav__link {
+  color: hsl(var(--muted-foreground));
+}
+
+[data-theme="dark"] .pf-v5-c-nav__link:hover,
+.pf-v5-theme-dark .pf-v5-c-nav__link:hover {
+  background: hsl(var(--primary) / 0.14);
+  color: hsl(var(--primary-hover));
+}
+
+/* Sidebar surface styling */
+.pf-v5-c-page__sidebar {
+  background: hsl(var(--secondary));
+  border-right: 1px solid hsl(var(--border));
+  box-shadow: inset -1px 0 0 hsl(var(--border) / 0.5);
+}
+
+[data-theme="dark"] .pf-v5-c-page__sidebar,
+.pf-v5-theme-dark .pf-v5-c-page__sidebar {
+  background: hsl(216 28% 12% / 0.9);
+  border-right-color: hsl(var(--border));
+  box-shadow: inset -1px 0 0 hsl(var(--border));
 }
 
 /* ============================================
